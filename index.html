@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <section>
+    <div class="container mt-5 border border-3 p-4 border-primary">
+      <h2 class="text-center text-primary pb-3">Product Management</h2>
+
+      <div class="form-floating mb-3">
+        <input type="text" oninput="validation(this)" class="form-control" id="prodTitle" placeholder="prodTitle">
+        <span class="text-danger d-none">Product title must start with a capital letter</span>
+        <label for="prodTitle">Product Title</label>
+      </div>
+      <div class="form-floating  mb-3">
+        <input type="number" oninput="validation(this)" class="form-control" id="prodPrice" placeholder="prodPrice">
+        <span class="text-danger d-none">Product Price must be in range 6.000-60.000</span>
+
+        <label for="prodPrice">Product Price</label>
+      </div>
+      <div class="form-floating  mb-3">
+        <input list="categories"  oninput="validation(this)" type="text" class="form-control" id="prodCategory" placeholder="prodCategory">
+        <span class="text-danger d-none">Product Category must be one of the list</span>
+
+        <label for="prodCategory">Product Category</label>
+        <datalist id="categories">
+          <option value="TV" />
+          <option value="Mobile" />
+          <option value="Screens" />
+          <option value="Watches" />
+          <option value="Electronics" />
+        </datalist>
+
+      </div>
+      <div class="form-floating  mb-3">
+        <input type="file" class="form-control" id="prodImage" placeholder="prodImage">
+        <label for="prodImage">Product Image</label>
+      </div>
+      <div class="form-floating  mb-3">
+        <textarea type="text"  oninput="validation(this)" class="form-control" id="prodDesc" placeholder="prodDesc"></textarea>
+        <span class="text-danger d-none">Product Description must be from 0 to 250 words</span>
+
+        <label for="prodDesc">Product Description</label>
+      </div>
+      <button id="addBtn" type="button" class="btn btn-primary" onclick="addProduct()">Add Product</button>
+      <button id="updateBtn" type="button" class="btn btn-success d-none" onclick="updateProduct()">Update Product</button>
+
+
+
+    </div>
+  </section>
+
+
+  <section>
+    <div class="container py-5">
+      <div class="form-floating  mb-3">
+        <input oninput="searchProd()" type="text" class="form-control" id="prodSearch" placeholder="prodSearch" >
+        <label for="prodSearch">Product Search</label>
+      </div>
+      <div class="row gy-3 " id="products">
+        
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>
